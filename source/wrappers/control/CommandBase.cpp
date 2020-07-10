@@ -8,6 +8,4 @@ void CommandBase::keyDownCommand() {}
 
 void CommandBase::keyUpCommand() {}
 
-int CommandBase::DEFAULT() {
-	return -1;
-}
+int CommandBase::DEFAULT() { return -1; }

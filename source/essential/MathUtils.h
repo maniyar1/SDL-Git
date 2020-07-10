@@ -3,6 +3,7 @@
 #include "../primitives/Point.h"
 
 namespace Math {
-	Point bezier2ndDegreeDerivative(Point start, Point end, Point control, double t);
+Point bezier2ndDegreeDerivative(Point start, Point end, Point control,
+                                double t);
 }
 #endif
