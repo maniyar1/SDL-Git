@@ -5,15 +5,15 @@
 #include "ButtonCommand.h"
 
 class PlayerMoveCommand : public ButtonCommand {
- private:
-  Point* target;
-  void (*command)(Point*);
+   private:
+    Point* target;
+    void (*command)(Point*);
 
- public:
-  PlayerMoveCommand(void (*command)(Point*), Point* target);
-  ~PlayerMoveCommand();
-  PlayerMoveCommand& operator=(const PlayerMoveCommand other);
-  void execute() override;
-  int DEFAULT() override;
+   public:
+    PlayerMoveCommand(void (*command)(Point*), Point* target);
+    ~PlayerMoveCommand();
+    PlayerMoveCommand& operator=(const PlayerMoveCommand other);
+    void execute() override;
+    int DEFAULT() override;
 };
 #endif

@@ -12,13 +12,13 @@ void Path::setTarget(EnemyBase* target) { this->target = target; }
 bool Path::isStarted() const { return this->started; }
 
 void Path::update() {
-  float tmp = this->timer.getTicks();
-  if (tmp) {
-    for (int i = 1; i < tmp; i++) {
-      this->modify(1 / 10.0);
+    float tmp = this->timer.getTicks();
+    if (tmp) {
+        for (int i = 1; i < tmp; i++) {
+            this->modify(1 / 10.0);
+        }
+        this->timer.start();
     }
-    this->timer.start();
-  }
 }
 
 void Path::pause() { this->timer.pause(); }

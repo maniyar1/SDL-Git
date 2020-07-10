@@ -12,19 +12,19 @@
 typedef std::shared_ptr<SectorBase> SectorPtr;
 
 class SectorPath {
- protected:
-  std::vector<SectorPtr> stored;
-  ThingBase* target;
+   protected:
+    std::vector<SectorPtr> stored;
+    ThingBase* target;
 
- public:
-  SectorPath(ThingBase* target);
-  SectorPath& operator=(const SectorPath& that);
-  ~SectorPath();
-  bool isFinished() const;
-  int size();
-  Point currentTarget(Point currentPosition);
-  void clear();
-  void createPath(SectorPtr startingSector, SectorPtr target);
-  void draw();
+   public:
+    SectorPath(ThingBase* target);
+    SectorPath& operator=(const SectorPath& that);
+    ~SectorPath();
+    bool isFinished() const;
+    int size();
+    Point currentTarget(Point currentPosition);
+    void clear();
+    void createPath(SectorPtr startingSector, SectorPtr target);
+    void draw();
 };
 #endif

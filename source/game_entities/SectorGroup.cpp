@@ -22,45 +22,46 @@ SectorPtr& SectorGroup::operator[](int index) { return this->storage[index]; }
 
 std::vector<SectorPtr> SectorGroup::sectorsThatTouch(
     const std::shared_ptr<ThingBase>& target) {
-  std::vector<SectorPtr> vector;
-  for (SectorPtr& sector : this->storage) {
-    if (target->overlap(sector->structure())) vector.push_back(sector);
-  }
-  return vector;
+    std::vector<SectorPtr> vector;
+    for (SectorPtr& sector : this->storage) {
+        if (target->overlap(sector->structure())) vector.push_back(sector);
+    }
+    return vector;
 }
 
 void SectorGroup::addSector(Rect structure, std::string data) {
-  this->storage.push_back(std::make_shared<Sector<Rect>>(structure, data));
-  this->storage.back()->structure().setColorChannels(0xFF, 0xFF, 0x00, 0xFF);
+    this->storage.push_back(std::make_shared<Sector<Rect>>(structure, data));
+    this->storage.back()->structure().setColorChannels(0xFF, 0xFF, 0x00, 0xFF);
 }
 
 void SectorGroup::clearGroup() { this->storage.clear(); }
 
 void SectorGroup::connectSectors() {
-  for (SectorPtr sector : this->storage) sector->connectToOthers(this->storage);
-  for (SectorPtr sector : this->storage) sector->clean(this->storage);
+    for (SectorPtr sector : this->storage)
+        sector->connectToOthers(this->storage);
+    for (SectorPtr sector : this->storage) sector->clean(this->storage);
 }
 
 void SectorGroup::drawGroup() {
-  for (SectorPtr sector : this->storage) sector->draw();
+    for (SectorPtr sector : this->storage) sector->draw();
 }
 
 void SectorGroup::purge() {
-  LOG("Before Purging: %i Sector(s)", this->size());
-  SectorPtrVector::iterator it = this->storage.begin();
-  while (it != this->storage.end()) {
-    if (!it[0] || it[0]->attached().size() == 0) {
-      it = this->storage.erase(it);
-      continue;
+    LOG("Before Purging: %i Sector(s)", this->size());
+    SectorPtrVector::iterator it = this->storage.begin();
+    while (it != this->storage.end()) {
+        if (!it[0] || it[0]->attached().size() == 0) {
+            it = this->storage.erase(it);
+            continue;
+        }
+        it++;
     }
-    it++;
-  }
-  LOG("After Purging: %i Sector(s)", this->size());
+    LOG("After Purging: %i Sector(s)", this->size());
 
-  for (const ThingPtr& thing : this->parent->collisionThings) {
-    for (SectorPtr& sector : this->storage) {
-      if (thing->overlap(sector->structure()))
-        sector->getContained().push_back(thing);
+    for (const ThingPtr& thing : this->parent->collisionThings) {
+        for (SectorPtr& sector : this->storage) {
+            if (thing->overlap(sector->structure()))
+                sector->getContained().push_back(thing);
+        }
     }
-  }
 }

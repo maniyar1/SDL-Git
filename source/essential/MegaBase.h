@@ -5,12 +5,12 @@
 
 #include "../BoundedPoint.h"
 class MegaBase {
- public:
-  static SDL_Renderer* renderer;
-  static Point* offset;
-  static void setRenderer(SDL_Renderer* renderer) {
-    MegaBase::renderer = renderer;
-  }
-  static void setOffset(Point* offset) { MegaBase::offset = offset; }
+   public:
+    static SDL_Renderer* renderer;
+    static Point* offset;
+    static void setRenderer(SDL_Renderer* renderer) {
+        MegaBase::renderer = renderer;
+    }
+    static void setOffset(Point* offset) { MegaBase::offset = offset; }
 };
 #endif

@@ -4,16 +4,16 @@
 #include "Path.h"
 
 class ZeroRadiusTurnPath : public Path {
- private:
-  float startingAngle, targetAngle, maxTicks;
-  bool clockwise;
+   private:
+    float startingAngle, targetAngle, maxTicks;
+    bool clockwise;
 
- public:
-  ZeroRadiusTurnPath(float targetAngle, float time, bool clockwise = false);
-  ~ZeroRadiusTurnPath();
-  bool isFinished() const override;
-  void start() override;
-  void stop() override;
-  void modify(float delta) override;
+   public:
+    ZeroRadiusTurnPath(float targetAngle, float time, bool clockwise = false);
+    ~ZeroRadiusTurnPath();
+    bool isFinished() const override;
+    void start() override;
+    void stop() override;
+    void modify(float delta) override;
 };
 #endif

@@ -11,20 +11,20 @@
 #include "base/ThingBase.h"
 
 class BigWall : public ThingBase {
- private:
-  Rect rect;
+   private:
+    Rect rect;
 
- public:
-  BigWall(Rect rect);
-  ~BigWall();
-  bool doesLineCollide(const Line& ray) const override;
-  bool overlap(const Polygon& other) const override;
-  bool overlap(const std::shared_ptr<ThingBase>& other) const override;
-  bool wideOverlap(const Polygon& other) const override;
-  double originDistance() const override;
-  Point collideLine(const Line& ray) const override;
-  Point getPosition() const override;
-  Rect getBoundingRect() const override;
-  void draw(SDL_Renderer* renderer, Point offset = Point(0, 0)) override;
+   public:
+    BigWall(Rect rect);
+    ~BigWall();
+    bool doesLineCollide(const Line& ray) const override;
+    bool overlap(const Polygon& other) const override;
+    bool overlap(const std::shared_ptr<ThingBase>& other) const override;
+    bool wideOverlap(const Polygon& other) const override;
+    double originDistance() const override;
+    Point collideLine(const Line& ray) const override;
+    Point getPosition() const override;
+    Rect getBoundingRect() const override;
+    void draw(SDL_Renderer* renderer, Point offset = Point(0, 0)) override;
 };
 #endif

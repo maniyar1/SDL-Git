@@ -4,12 +4,12 @@
 #include "Timer.h"
 
 class MovementWrapper {
- private:
-  Timer timer;
+   private:
+    Timer timer;
 
- public:
-  MovementWrapper();
-  ~MovementWrapper();
-  double getValue();
+   public:
+    MovementWrapper();
+    ~MovementWrapper();
+    double getValue();
 };
 #endif

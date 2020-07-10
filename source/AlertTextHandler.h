@@ -5,13 +5,13 @@
 
 #include "wrappers/AlertText.h"
 class AlertTextHandler {
- private:
-  std::vector<AlertText> alerts;
+   private:
+    std::vector<AlertText> alerts;
 
- public:
-  AlertTextHandler();
-  ~AlertTextHandler();
-  void addMessage(AlertText message);
-  void drawHandler();
+   public:
+    AlertTextHandler();
+    ~AlertTextHandler();
+    void addMessage(AlertText message);
+    void drawHandler();
 };
 #endif
